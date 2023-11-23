@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { Component } from "react";
 import logo from "../images/heartLogo.svg";
 
-class Header extends Component{
+class Header extends Component {
     render() {
         return (
             <div className="header">
