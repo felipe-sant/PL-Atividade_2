@@ -5,7 +5,7 @@ class Main extends Component {
         return (
             <div className="mainBackground">
                 <div className="main"> 
-                    <h1>Selecione uma opção</h1>
+                    <h1>Selecione uma opção: </h1>
                     <div className="opcoes">
                         <a href="#" className="opcao cliente">
                             <h2>Cliente</h2>
