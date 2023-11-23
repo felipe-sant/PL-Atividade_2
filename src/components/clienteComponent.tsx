@@ -1,5 +1,4 @@
 import { Component } from "react";
-import "./cliente.css";
 import Cliente from "../modelo/cliente";
 import RG from "../modelo/rg";
 import CPF from "../modelo/cpf";
@@ -31,7 +30,7 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="main mainCliente">
+            <div className="main mainCliente mainCrud">
                 <h1>Cliente</h1>
                 <div className="navegacao">
                     <a href="#" className="criar">Criar</a>

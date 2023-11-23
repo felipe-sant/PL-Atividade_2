@@ -1,5 +1,4 @@
 import { Component } from "react";
-import "./home.css";
 
 class Main extends Component {
     render() {

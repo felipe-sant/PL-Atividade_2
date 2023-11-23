@@ -7,6 +7,8 @@ import Produto from "./pages/produto";
 import Servico from "./pages/servico";
 import "./styles/styles.css";
 import "./styles/rootDark.css"
+import "./styles/crud.css";
+import "./styles/home.css";
 
 class App extends Component {
   render() {
