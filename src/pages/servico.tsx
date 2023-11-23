@@ -7,7 +7,9 @@ class Servico extends Component {
     return (
       <div>
         <Header />
-        <h1>Serviço</h1>
+        <div className="mainBackground">
+          <h1>Servico</h1>
+        </div>
         <Footer />
       </div>
     )

@@ -7,7 +7,9 @@ class Cliente extends Component {
     return (
       <div>
         <Header />
-        <h1>Cliente</h1>
+        <div className="mainBackground">
+          <h1>Cliente</h1>
+        </div>
         <Footer />
       </div>
     );

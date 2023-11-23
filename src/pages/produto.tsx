@@ -7,7 +7,9 @@ class Produto extends Component {
     return (
       <div>
         <Header />
-        <h1>Produto</h1>
+        <div className="mainBackground">
+          <h1>Produto</h1>
+        </div>
         <Footer />
       </div>
     );
