@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Header from "../components/HeaderComponent";
 import Footer from "../components/FooterComponent";
+import Main from "../components/servicoComponent";
 
 class Servico extends Component {
   render() {
@@ -8,7 +9,7 @@ class Servico extends Component {
       <div>
         <Header />
         <div className="mainBackground">
-          <h1>Servico</h1>
+          <Main />
         </div>
         <Footer />
       </div>
