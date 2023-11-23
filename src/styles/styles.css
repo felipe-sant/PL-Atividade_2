@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Wix+Madefor+Text:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root {
-    --main-color: #202020;
-    --main-color-opacity: #20202099;
-    --secondary-color: #2e2e2e;
-    --secondary-color-opacity: #2e2e2e99;
-    --tertiary-color: white;
-    --red-color: #ff0000;
-
-    --title-font: 'Montserrat', sans-serif;
-    --text-font: 'Wix Madefor Text', sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +8,7 @@
 
 body {
     font-family: var(--title-font);
-    background-image: url('./images/wallpaperPetShop.png');
+    background-image: url('../images/wallpaperPetShop.png');
     background-repeat: repeat;
 }
 
@@ -34,10 +22,8 @@ div.pageNotFound {
     align-items: center;
     height: 100vh;
     color: var(--tertiary-color);
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    text-shadow: 0px 0px 10px var(--main-color-opacity);
 }
-
-/* Global */
 
 /* Header */
 
@@ -48,8 +34,7 @@ div.header {
     justify-content: space-between;
     padding: 1rem 2rem;
     height: 56px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-    z-index: 9;
+    box-shadow: 0px 0px 10px 0px var(--main-color-opacity);
 }
 
 .header .logo {
@@ -69,7 +54,7 @@ div.header {
 
 .header .logo h1 a {
     text-decoration: none;
-    color: white;
+    color: var(--tertiary-color);
 }
 
 .header ul {

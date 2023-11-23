@@ -2,18 +2,19 @@
     margin: auto;
     height: 100%;
     height: calc(100vh - 56px - 30px);
-    max-width: 1000px;
+    max-width: 1200px;
     min-width: none;
-    padding: 140px 40px 190px 40px;
+    padding: 20px;
+    padding-bottom: 64px;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
 
     background-color: var(--secondary-color);
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 10px 0px var(--main-color-opacity);
     z-index: 8;
 }
 

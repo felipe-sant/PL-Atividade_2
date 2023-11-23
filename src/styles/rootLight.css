@@ -1,0 +1,11 @@
+:root {
+    --main-color: #e0e0e0;
+    --main-color-opacity: #dfdfdf99;
+    --secondary-color: #f5f5f5;
+    --secondary-color-opacity: #2020202d;
+    --tertiary-color: #202020;
+    --red-color: #ff0000;
+
+    --title-font: 'Montserrat', sans-serif;
+    --text-font: 'Wix Madefor Text', sans-serif;
+}

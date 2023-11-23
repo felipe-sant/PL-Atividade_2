@@ -5,7 +5,8 @@ import Home from "./pages/home";
 import Cliente from "./pages/cliente";
 import Produto from "./pages/produto";
 import Servico from "./pages/servico";
-import "./styles.css";
+import "./styles/styles.css";
+import "./styles/rootDark.css"
 
 class App extends Component {
   render() {
