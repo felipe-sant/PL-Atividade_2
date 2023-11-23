@@ -7,13 +7,10 @@ class Header extends Component {
             <div className="header">
                 <div className="logo">
                     <img src={ logo } alt=""/>
-                    <h1>Pet Lovers</h1>
+                    <h1><a href="/">Pet Lovers</a></h1>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Pedro augusto</a></li>
-                        <li><a href="#">Pedro augusto</a></li>
-                        <li><a href="#">Pedro augusto</a></li>
                     </ul>
                 </nav>
             </div>

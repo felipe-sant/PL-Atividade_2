@@ -7,13 +7,13 @@ class Main extends Component {
                 <div className="main"> 
                     <h1>Selecione uma opção: </h1>
                     <div className="opcoes">
-                        <a href="#" className="opcao cliente">
+                        <a href="/cliente" className="opcao cliente">
                             <h2>Cliente</h2>
                         </a>
-                        <a href="#" className="opcao produto">
+                        <a href="/produto" className="opcao produto">
                             <h2>Produto</h2>
                         </a>
-                        <a href="#" className="opcao servico">
+                        <a href="/servico" className="opcao servico">
                             <h2>Serviço</h2>
                         </a>
                     </div>

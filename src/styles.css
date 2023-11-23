@@ -2,9 +2,10 @@
 
 :root {
     --main-color: #202020;
+    --main-color-opacity: #20202099;
     --secondary-color: #2e2e2e;
     --secondary-color-opacity: #2e2e2e99;
-    --tertiary-color: #ffffff;
+    --tertiary-color: white;
     --red-color: #ff0000;
 
     --title-font: 'Montserrat', sans-serif;
@@ -22,6 +23,21 @@ body {
     background-image: url('./images/wallpaperPetShop.png');
     background-repeat: repeat;
 }
+
+/* PageNotFound */
+
+div.pageNotFound {
+    background-color: var(--main-color-opacity);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--tertiary-color);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+}
+
+/* Global */
 
 /* Header */
 
@@ -47,8 +63,13 @@ div.header {
 }
 
 .header .logo h1 {
-    color: white;
+    color: var(--tertiary-color);
     font-size: 1.2em;
+}
+
+.header .logo h1 a {
+    text-decoration: none;
+    color: white;
 }
 
 .header ul {
@@ -59,7 +80,7 @@ div.header {
 }
 
 .header ul li a {
-    color: white;
+    color: var(--tertiary-color);
     text-decoration: none;
     font-size: 0.9em;
 }
@@ -89,7 +110,7 @@ div.header {
 }
 
 .main h1 {
-    color: white;
+    color: var(--tertiary-color);
     font-size: 1.7em;
     font-weight: 600;
     text-align: center;
@@ -115,7 +136,7 @@ div.header {
     transition: all 0.2s ease-in-out;
 
     background-color: var(--main-color);
-    color: white;
+    color: var(--tertiary-color);
     border: 3px solid var(--main-color);
     border-radius: 20px;
     
@@ -141,7 +162,7 @@ div.header {
 
 div.footer {
     background-color: var(--main-color);
-    color: white;
+    color: var(--tertiary-color);
     font-size: 0.9em;
     padding: 5px;
     height: 30px;

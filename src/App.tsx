@@ -1,16 +1,26 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Component } from "react";
+import PageNotFound from "./pages/pageNotFound";
+import Home from "./pages/home";
+import Cliente from "./pages/cliente";
+import Produto from "./pages/produto";
+import Servico from "./pages/servico";
 import "./styles.css";
-import Header from "./components/HeaderComponent";
-import Main from "./components/MainComponent";
-import Footer from "./components/FooterComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cliente" element={<Cliente />} />
+          <Route path="/produto" element={<Produto />} />
+          <Route path="/servico" element={<Servico />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
