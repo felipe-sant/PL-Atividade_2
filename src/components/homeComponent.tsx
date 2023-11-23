@@ -4,7 +4,7 @@ import "./home.css";
 class Main extends Component {
     render() {
         return (
-            <div className="main"> 
+            <div className="main mainHome"> 
                 <div className="navegacao">
                     <h1>Selecione uma opção: </h1>
                     <div className="opcoes">

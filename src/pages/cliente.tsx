@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Header from "../components/HeaderComponent";
+import Main from "../components/clienteComponent";
 import Footer from "../components/FooterComponent";
 
 class Cliente extends Component {
@@ -8,7 +9,7 @@ class Cliente extends Component {
       <div>
         <Header />
         <div className="mainBackground">
-          <h1>Cliente</h1>
+          <Main />
         </div>
         <Footer />
       </div>

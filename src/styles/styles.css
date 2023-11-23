@@ -78,6 +78,16 @@ div.header {
     max-height: none;
 }
 
+.main {
+    margin: auto;
+    max-width: 1200px;
+    min-width: none;
+    padding: 20px;
+
+    background-color: var(--secondary-color);
+    box-shadow: 0px 5px 10px 0px var(--main-color-opacity);
+}
+
 /* Footer */
 
 div.footer {

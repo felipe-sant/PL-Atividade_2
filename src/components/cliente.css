@@ -1,0 +1,107 @@
+.mainCliente {
+    min-height: calc(100vh - 56px - 30px);
+    height: 100%;
+    color: var(--tertiary-color);
+}
+
+.mainCliente h1 {
+    font-size: 1.7em;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.mainCliente h1::after {
+    content: " -";
+}
+
+.mainCliente h1::before {
+    content: "- ";
+}
+
+.mainCliente .navegacao {
+    border: 4px solid var(--main-color);
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px 40px;
+    max-width: 400px;
+    min-width: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 40px;
+}
+
+.mainCliente .navegacao a {
+    display: block;
+    color: var(--tertiary-color);
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.mainCliente .navegacao a:hover {
+    color: var(--red-color);
+}
+
+.mainCliente .menu table {
+    /*
+    margin: 0px -20px 0px -20px;
+    width: calc(100% + 40px);
+    */
+    width: 100%;
+    border-collapse: collapse;let nome1 = "Gabriel"
+    let nomeSocial1 = ""
+    let cpf1 = new CPF("12345678910", new Date(1999, 1, 1))
+    let id1 = 1
+    let rgs1 = [ new RG("123456789", new Date(1999, 1, 1)), ]
+    let telefones1 = [ new Telefone("12", "13213213") ]
+    let cliente1 = new Cliente(nome1, nomeSocial1, cpf1, id1, rgs1, telefones1)
+    
+    let nome2 = "Bruno"
+    let nomeSocial2 = ""
+    let cpf2 = new CPF("22345678920", new Date(2999, 2, 2))
+    let id2 = 2
+    let rgs2 = [ new RG("223456789", new Date(2999, 2, 2)), ]
+    let telefones2 = [ new Telefone("22", "23223223") ]
+    let cliente2 = new Cliente(nome2, nomeSocial2, cpf2, id2, rgs2, telefones2)
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.mainCliente .menu table th {
+    background-color: var(--main-color);
+}
+
+.mainCliente .menu table th, .mainCliente .menu table td {
+    padding: 10px;
+    border: 4px solid var(--main-color);
+}
+
+.mainCliente .menu table td a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.mainCliente .menu table td a:hover {
+    color: var(--red-color);
+}
+
+.mainCliente .menu table td.id {
+    width: 50px;
+}
+
+.mainCliente .menu table td.center {
+    text-align: center;
+}
+
+.mainCliente .menu table td.center a {
+    display: block;
+    font-weight: 800;
+    margin: auto;
+}
