@@ -1,0 +1,116 @@
+.mainForm {
+    position: relative;
+    min-height: calc(100vh - 56px - 30px);
+    max-height: none;
+}
+
+.mainForm h1 {
+    margin: 60px 0px 40px 0px;
+
+    text-align: center;
+    font-size: 1.2em;
+
+    color: var(--tertiary-color)
+}
+
+.mainForm form {
+    margin: auto;
+    padding: 10px;
+
+    max-width: 350px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainForm form .input {
+    margin: 10px 0px;
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+.mainForm form .input label {
+    margin-bottom: 5px;
+    font-weight: 600;
+
+    font-family: var(--text-font);
+    font-size: 1em;
+    color: var(--tertiary-color)
+}
+
+.mainForm form .input label::after {
+    content: ":";
+}
+
+.mainForm form .input input {
+    padding: 7px;
+    background-color: var(--main-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    outline: none;
+    color: var(--tertiary-color);
+
+    font-family: var(--text-font);
+    font-size: 1em;
+    transition: all 0.2s ease-in-out;
+}
+
+.mainForm form .input input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.mainForm form .input input:focus {
+    border: 1px solid var(--red-color);
+}
+
+.mainForm form .inputSubmit {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.mainForm form .inputSubmit .cancel {
+    padding: 7px 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    outline: none;
+    color: var(--tertiary-color);
+
+    font-family: var(--text-font);
+    font-size: 1em;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.mainForm form .inputSubmit .cancel:hover {
+    color: var(--red-color);
+}
+
+.mainForm form .inputSubmit input {
+    padding: 7px 10px;
+    background-color: var(--main-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    outline: none;
+    color: var(--tertiary-color);
+
+    font-family: var(--text-font);
+    font-size: 1em;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.mainForm form .inputSubmit input:hover {
+    background-color: var(--red-color);
+}

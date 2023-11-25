@@ -3,7 +3,7 @@ import Header from "../components/HeaderComponent";
 import Main from "../components/clienteComponent";
 import Footer from "../components/FooterComponent";
 
-class Cliente extends Component {
+class ClientePage extends Component {
   render() {
     return (
       <div>
@@ -17,4 +17,4 @@ class Cliente extends Component {
   }
 }
 
-export default Cliente;
+export default ClientePage;

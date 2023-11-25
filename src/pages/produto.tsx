@@ -2,8 +2,10 @@ import { Component } from "react";
 import Header from "../components/HeaderComponent";
 import Main from "../components/produtoComponent";
 import Footer from "../components/FooterComponent";
+import Empresa from "../modelo/empresa";
 
-class Produto extends Component {
+class ProdutoPageCreate extends Component {
+
   render() {
     return (
       <div>
@@ -17,4 +19,4 @@ class Produto extends Component {
   }
 }
 
-export default Produto;
+export default ProdutoPageCreate;

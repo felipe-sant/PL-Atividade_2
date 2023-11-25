@@ -6,27 +6,37 @@ export default class Empresa{
     private clientes: Array<Cliente>
     private produtos: Array<Produto>
     private servicos: Array<Servico>
+
     constructor(){
         this.clientes = []
         this.produtos = []
         this.servicos = []
     }
+
     public get getClientes(){
         return this.clientes
     }
+
     public get getProdutos(){
         return this.produtos
     }
     public get getServicos(){
         return this.servicos
     }
+
     public setClientes(newCliente:Array<Cliente>){
         this.clientes = newCliente
     }
+
     public setServicos(newServico:Array<Servico>){
         this.servicos = newServico
     }
+
     public setProdutos(newProduto:Array<Produto>){
         this.produtos = newProduto
+    }
+
+    public addProdutos(produto:Produto){
+        this.produtos.push(produto)
     }
 }
