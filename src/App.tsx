@@ -13,13 +13,11 @@ import "./styles/home.css";
 import "./styles/form.css";
 import Empresa from "./modelo/empresa";
 import ServicoPageCreate from "./pages/servicoCreate";
+import ProdutoPageDelete from "./pages/produtoDelete";
 
 class App extends Component<{empresa: Empresa}> {
-  private empresa:Empresa
-
   constructor(props: any) {
     super(props)
-    this.empresa = props.empresa
   }
 
   render() {
@@ -27,11 +25,16 @@ class App extends Component<{empresa: Empresa}> {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/cliente" element={<ClientePage />} />
-          <Route path="/produto" element={<ProdutoPage/>} />
-          <Route path="/produto/create" element={<ProdutoPageCreate/>} />
+
+          <Route path="/produto" element={<ProdutoPage />} />
+          <Route path="/produto/create" element={<ProdutoPageCreate />} />
+          <Route path="/produto/delete" element={<ProdutoPageDelete />} />
+
           <Route path="/servico" element={<ServicoPage />} />
           <Route path="/servico/create" element={<ServicoPageCreate />} />
+          
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
