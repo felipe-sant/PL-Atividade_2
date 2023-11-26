@@ -17,8 +17,7 @@ class Main extends Component {
     render() {
         const cadastrar = (nome:string, valor:number) => {
             let cadastro = new CadastroProduto(petLovers, nome, valor)
-            localStorage.setItem("produtos", JSON.stringify(cadastro.cadastrar()))
-            console.log(cadastro.cadastrar())
+            cadastro.cadastrar()
             window.location.href = "/produto"
         }
 

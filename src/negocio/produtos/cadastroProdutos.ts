@@ -13,7 +13,7 @@ export default class CadastroProduto extends Cadastro {
         this.valor = valor
     }
 
-    public cadastrar(): Array<Produto> {
+    public cadastrar(): void {
         let idUltimoProduto = 0
 
         if (this.produtos.length !== 0) {
@@ -32,6 +32,6 @@ export default class CadastroProduto extends Cadastro {
 
         this.produtos.push(produto)
 
-        return this.produtos
+        localStorage.setItem("produtos", JSON.stringify(this.produtos))
     }
 }
