@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { petLovers } from "../dados";
 import Produto from "../modelo/produto";
 
 class Main extends Component {
@@ -6,7 +7,7 @@ class Main extends Component {
 
     constructor(props: any) {
         super(props)
-        this.lista = []
+        this.lista = petLovers.getProdutos
     }
 
     render() {

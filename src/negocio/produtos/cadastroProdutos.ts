@@ -1,3 +1,4 @@
+import Empresa from "../../modelo/empresa";
 import Produto from "../../modelo/produto";
 import Cadastro from "../cadastro";
 
@@ -5,14 +6,14 @@ export default class CadastroProduto extends Cadastro {
     private produtos: Array<Produto>
     private nome: string
     private valor: number
-    constructor(produtos: Array<Produto>, nome: string, valor: number) {
+    constructor(empresa: Empresa, nome: string, valor: number) {
         super()
-        this.produtos = produtos
+        this.produtos = empresa.getProdutos
         this.nome = nome
         this.valor = valor
     }
 
-    public cadastrar(): Produto {
+    public cadastrar(): Array<Produto> {
         let idUltimoProduto = 0
 
         if (this.produtos.length !== 0) {
@@ -29,6 +30,8 @@ export default class CadastroProduto extends Cadastro {
         produto.nome = this.nome
         produto.valor = this.valor
 
-        return produto
+        this.produtos.push(produto)
+
+        return this.produtos
     }
 }

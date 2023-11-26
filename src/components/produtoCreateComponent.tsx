@@ -1,4 +1,7 @@
 import { Component } from "react";
+import { petLovers } from "../dados";
+import CadastroProduto from "../negocio/produtos/cadastroProdutos";
+import { redirect } from "react-router-dom";
 
 class Main extends Component {
     private nome!: string
@@ -13,12 +16,19 @@ class Main extends Component {
     }
 
     render() {
+        const cadastrar = (nome:string, valor:number) => {
+            let cadastro = new CadastroProduto(petLovers, nome, valor)
+            localStorage.setItem("produtos", JSON.stringify(cadastro.cadastrar()))
+            console.log(cadastro.cadastrar())
+            window.location.href = "/produto"
+        }
+
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
             e.preventDefault()
             if (this.nome !== undefined && this.valor !== undefined) {
-                alert("Produto criado com sucesso!")
+                cadastrar(this.nome, this.valor)
             } else {
-                console.log("Erro")
+                alert("Preencha todos os campos!")
             }
         }
 
@@ -46,7 +56,7 @@ class Main extends Component {
                     </div>
                     <div className="input inputSubmit">
                         <a href="/produto" className="cancel">Cancelar</a>
-                        <input type="submit" value="Criar" />
+                        <input type="submit" value="Criar"/>
                     </div>
                 </form>
             </div>
