@@ -12,6 +12,7 @@ import "./styles/crud.css";
 import "./styles/home.css";
 import "./styles/form.css";
 import Empresa from "./modelo/empresa";
+import ServicoPageCreate from "./pages/servicoCreate";
 
 class App extends Component<{empresa: Empresa}> {
   private empresa:Empresa
@@ -30,6 +31,7 @@ class App extends Component<{empresa: Empresa}> {
           <Route path="/produto" element={<ProdutoPage/>} />
           <Route path="/produto/create" element={<ProdutoPageCreate/>} />
           <Route path="/servico" element={<ServicoPage />} />
+          <Route path="/servico/create" element={<ServicoPageCreate />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

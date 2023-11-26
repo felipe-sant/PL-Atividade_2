@@ -1,9 +1,9 @@
 import { Component } from "react";
-import Header from "../components/HeaderComponent";
 import Footer from "../components/FooterComponent";
-import Main from "../components/produtoCreateComponent";
+import Header from "../components/HeaderComponent";
+import Main from "../components/servicoCreateComponent";
 
-class ProdutoPageCreate extends Component {
+class ServicoPageCreate extends Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ class ProdutoPageCreate extends Component {
     }
 }
 
-export default ProdutoPageCreate;
+export default ServicoPageCreate;

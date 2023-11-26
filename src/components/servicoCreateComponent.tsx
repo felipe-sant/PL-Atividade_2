@@ -1,6 +1,6 @@
 import { Component } from "react";
+import CadastroServico from "../negocio/servicos/cadastroServico";
 import { petLovers } from "../dados";
-import CadastroProduto from "../negocio/produtos/cadastroProdutos";
 
 class Main extends Component {
     private nome!: string
@@ -16,10 +16,9 @@ class Main extends Component {
 
     render() {
         const cadastrar = (nome:string, valor:number) => {
-            let cadastro = new CadastroProduto(petLovers, nome, valor)
-            localStorage.setItem("produtos", JSON.stringify(cadastro.cadastrar()))
-            console.log(cadastro.cadastrar())
-            window.location.href = "/produto"
+            let cadastro = new CadastroServico(petLovers, nome, valor)
+            cadastro.cadastrar()
+            window.location.href = "/servico"
         }
 
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
@@ -42,24 +41,24 @@ class Main extends Component {
         }
 
         return (
-            <div className="main mainProdutoCreate mainForm">
-                <h1>Criando um novo produto</h1>
+            <div className="main mainServicoCreate mainForm">
+                <h1>Criando um novo serviço</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="input inputName">
                         <label htmlFor="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" value={this.nome} placeholder="Nome do produto" onChange={handleNomeChange}/>
+                        <input type="text" name="nome" id="nome" value={this.nome} placeholder="Nome do serviço" onChange={handleNomeChange}/>
                     </div>
                     <div className="input inputValue">
                         <label htmlFor="valor">Valor</label>
                         <input type="number" name="valor" id="valor" value={this.valor} placeholder="0" onChange={handleValorChange}/>
                     </div>
                     <div className="input inputSubmit">
-                        <a href="/produto" className="cancel">Cancelar</a>
+                        <a href="/servico" className="cancel">Cancelar</a>
                         <input type="submit" value="Criar"/>
                     </div>
                 </form>
             </div>
-        )
+        )    
     }
 }
 
