@@ -17,8 +17,8 @@ class Main extends Component {
                 <h1>Serviço</h1>
                 <div className="navegacao">
                     <a href="/servico/create" className="criar">Criar</a>
-                    <a href="#" className="atualizar">Atualizar</a>
-                    <a href="#" className="deletar">Deletar</a>
+                    <a href="/servico/edit" className="atualizar">Atualizar</a>
+                    <a href="/servico/delete" className="deletar">Deletar</a>
                 </div>
                 <div className="menu">
                     <table className="listaProdutos">

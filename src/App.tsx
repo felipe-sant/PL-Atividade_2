@@ -14,6 +14,7 @@ import "./styles/form.css";
 import Empresa from "./modelo/empresa";
 import ServicoPageCreate from "./pages/servicoCreate";
 import ProdutoPageDelete from "./pages/produtoDelete";
+import ServicoPageDelete from "./pages/servicoDelete";
 
 class App extends Component<{empresa: Empresa}> {
   constructor(props: any) {
@@ -34,6 +35,7 @@ class App extends Component<{empresa: Empresa}> {
 
           <Route path="/servico" element={<ServicoPage />} />
           <Route path="/servico/create" element={<ServicoPageCreate />} />
+          <Route path="/servico/delete" element={<ServicoPageDelete />} />
           
           <Route path="*" element={<PageNotFound />} />
         </Routes>
