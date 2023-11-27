@@ -3,12 +3,11 @@ export default class Produto {
     public nome!: string
     public valor!: number
 
-    public updateProduto(nome:string, valor:number): void {
-        if (nome !== "") {
-            this.nome = nome
-        }
-        if (valor !== 0) {
-            this.valor = valor
-        }
+    public setNome(nome: string) {
+        this.nome = nome
+    }
+
+    public setValor(valor: number) {
+        this.valor = valor
     }
 }

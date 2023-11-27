@@ -11,10 +11,12 @@ import "./styles/rootDark.css"
 import "./styles/crud.css";
 import "./styles/home.css";
 import "./styles/form.css";
+import "./styles/item.css";
 import Empresa from "./modelo/empresa";
 import ServicoPageCreate from "./pages/servicoCreate";
 import ProdutoPageDelete from "./pages/produtoDelete";
 import ServicoPageDelete from "./pages/servicoDelete";
+import ProdutoPageEdit from "./pages/produtoEdit";
 
 class App extends Component<{empresa: Empresa}> {
   constructor(props: any) {
@@ -31,6 +33,7 @@ class App extends Component<{empresa: Empresa}> {
 
           <Route path="/produto" element={<ProdutoPage />} />
           <Route path="/produto/create" element={<ProdutoPageCreate />} />
+          <Route path="/produto/edit" element={<ProdutoPageEdit />} />
           <Route path="/produto/delete" element={<ProdutoPageDelete />} />
 
           <Route path="/servico" element={<ServicoPage />} />

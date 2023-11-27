@@ -77,6 +77,10 @@
     flex-direction: row;
 }
 
+.mainForm form .inputSubmit.inputSolo {
+    justify-content: end;
+}
+
 .mainForm form .inputSubmit .cancel {
     padding: 7px 10px;
     border: 1px solid var(--secondary-color);
@@ -113,4 +117,28 @@
 
 .mainForm form .inputSubmit input:hover {
     background-color: var(--red-color);
+}
+
+.mainForm form.search .input div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.mainForm form.search .input div input.value {
+    width: 100%;
+}
+
+.mainForm form.search .input div input.search {
+    background-image: url(../images/search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 36px;
+    cursor: pointer;
+}
+
+.mainForm form.search .input div input.search:hover {
+    background-image: url(../images/search-hover.svg);
 }

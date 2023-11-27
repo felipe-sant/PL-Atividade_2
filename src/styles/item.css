@@ -1,0 +1,41 @@
+.item {
+    background-color: var(--main-color);
+    border-radius: 20px;
+
+    margin: auto;
+    margin-top: 40px;
+    padding: 40px;
+    width: 400px;
+}
+
+.item strong {
+    color: var(--red-color);
+}
+
+.item h2 {
+    font-family: var(--title-font);
+    font-size: 1rem;
+    color: var(--tertiary-color);
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.item p {
+    font-family: var(--text-font);
+    font-size: 1rem;
+    color: var(--tertiary-color);
+    text-align: center;
+}
+
+.item div.inputSubmit {
+    justify-content: end !important;
+    margin-bottom: 0px;
+}
+
+.item.itemError h2{
+    font-weight: 400;
+}
+
+.item.itemError strong {
+    font-weight: 400;
+}
