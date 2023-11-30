@@ -17,6 +17,7 @@ import ServicoPageCreate from "./pages/servicoCreate";
 import ProdutoPageDelete from "./pages/produtoDelete";
 import ServicoPageDelete from "./pages/servicoDelete";
 import ProdutoPageEdit from "./pages/produtoEdit";
+import ServicoPageEdit from "./pages/servicoEdit";
 
 class App extends Component<{empresa: Empresa}> {
   constructor(props: any) {
@@ -38,6 +39,7 @@ class App extends Component<{empresa: Empresa}> {
 
           <Route path="/servico" element={<ServicoPage />} />
           <Route path="/servico/create" element={<ServicoPageCreate />} />
+          <Route path="/servico/edit" element={<ServicoPageEdit />} />
           <Route path="/servico/delete" element={<ServicoPageDelete />} />
           
           <Route path="*" element={<PageNotFound />} />

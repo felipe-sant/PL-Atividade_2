@@ -1,5 +1,5 @@
-import { Component } from "react";
-import Item from "./produtoEditItemComponent";
+import { Component } from "react"
+import Item from "./servicoEditItemComponent"
 
 type Props = {
     id: number
@@ -8,7 +8,7 @@ type Props = {
 
 class Main extends Component<{}, Props> {
     public id!: any
-    
+
     constructor(props: {}) {
         super(props)
         this.state = {
@@ -36,8 +36,8 @@ class Main extends Component<{}, Props> {
         }
 
         return (
-            <div className="main mainProdutoEdit mainForm">
-                <h1>Alterando o produto</h1>
+            <div className="main mainServicoEdit mainForm">
+                <h1>Alterando o serviço</h1>
                 <form onSubmit={handleSubmit} className="search">
                     <div className="input inputId">
                         <label htmlFor="id">Id</label>

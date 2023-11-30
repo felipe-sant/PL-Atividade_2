@@ -18,7 +18,7 @@ export default class AtualizarProduto extends Atualizacao {
 
     public atualizar(): void {
         this.produtos.forEach(produto => {
-            if (produto.id == this.id) {
+            if (produto.id === this.id) {
                 produto.nome = this.nome
                 produto.valor = this.valor
             }
