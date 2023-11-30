@@ -142,3 +142,11 @@
 .mainForm form.search .input div input.search:hover {
     background-image: url(../images/search-hover.svg);
 }
+
+.mainForm input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.mainForm input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    color: var(--tertiary-color);
+}

@@ -49,8 +49,7 @@ class Main extends Component {
                         <input type="text" name="nome" id="nome" value={this.nome} placeholder="Nome do serviço" onChange={handleNomeChange}/>
                     </div>
                     <div className="input inputValue">
-                        <label htmlFor="valor">Valor</label>
-                        <input type="number" name="valor" id="valor" value={this.valor} placeholder="0" onChange={handleValorChange}/>
+han                        <input type="number" name="valor" id="valor" value={this.valor} placeholder="0" onChange={handleValorChange}/>
                     </div>
                     <div className="input inputSubmit">
                         <a href="/servico" className="cancel">Cancelar</a>

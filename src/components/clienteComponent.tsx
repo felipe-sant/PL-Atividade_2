@@ -33,9 +33,9 @@ class Main extends Component {
             <div className="main mainCliente mainCrud">
                 <h1>Cliente</h1>
                 <div className="navegacao">
-                    <a href="#" className="criar">Criar</a>
-                    <a href="#" className="atualizar">Atualizar</a>
-                    <a href="#" className="deletar">Deletar</a>
+                    <a href="/cliente/create" className="criar">Criar</a>
+                    <a href="/cliente/edit" className="atualizar">Atualizar</a>
+                    <a href="/cliente/delete" className="deletar">Deletar</a>
                 </div>
                 <div className="menu">
                     <table className="listaClientes">
