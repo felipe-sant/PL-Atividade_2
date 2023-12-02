@@ -1,3 +1,7 @@
+body {
+    position: relative;
+}
+
 .mainForm {
     position: relative;
     min-height: calc(100vh - 56px - 30px);

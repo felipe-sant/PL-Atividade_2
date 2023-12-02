@@ -1,5 +1,3 @@
-import ts from "typescript";
-import Cliente from "./modelo/cliente";
 import CPF from "./modelo/cpf";
 import Empresa from "./modelo/empresa";
 import CadastroCliente from "./negocio/clientes/cadastroCliente";
@@ -14,8 +12,6 @@ export var petLovers = new Empresa()
 
 let listaClientes = localStorage.getItem('clientes')
 listaClientes = listaClientes ? JSON.parse(listaClientes) : []
-
-console.log(listaClientes)
 
 if (listaClientes != null) {
     for (let i = 0; i < listaClientes.length; i++) {

@@ -12,6 +12,7 @@ import "./styles/crud.css";
 import "./styles/home.css";
 import "./styles/form.css";
 import "./styles/item.css";
+import "./styles/popup.css";
 import Empresa from "./modelo/empresa";
 import ServicoPageCreate from "./pages/servicoCreate";
 import ProdutoPageDelete from "./pages/produtoDelete";

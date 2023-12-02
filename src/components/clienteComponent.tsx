@@ -2,6 +2,9 @@ import { Component } from "react";
 import Cliente from "../modelo/cliente";
 import { petLovers } from "../dados";
 
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 class Main extends Component {
     private lista!: Array<Cliente>
 
@@ -34,7 +37,12 @@ class Main extends Component {
                             }
 
                             const showDados = () => {
-                                console.log(cliente.cpf.getValor)
+                                alert("")
+                                console.log(cliente.nome)
+                                console.log(cliente.nomeSocial)
+                                console.log(cliente.cpf)
+                                console.log(cliente.getRgs)
+                                console.log(cliente.getTelefones)
                             }
 
                             return (
@@ -59,8 +67,38 @@ class Main extends Component {
                                             })}
                                         </ul>
                                     </td>
-                                    <td className="center"><a onClick={showPets}>...</a></td>
-                                    <td className="center"><a onClick={showDados}>Dados</a></td>
+                                    <td className="center">
+                                        
+                                    </td>
+                                    <td className="center">
+                                        <Popup trigger={<button className="moreContent">Dados</button>} position={"left center"}>
+                                            <h1>{cliente.nome}</h1>
+                                            <h2>{cliente.nomeSocial}</h2>
+                                            <hr />
+                                            <ul>
+                                                <li>CPF: {cliente.getCpf.getValor}</li>
+                                                <li>RGs: 
+                                                    <ol>
+                                                        {cliente.getRgs.map((rg) => {
+                                                            return (
+                                                                <li>{rg.getValor}</li>
+                                                            )
+                                                        })}
+                                                    </ol>
+                                                </li>
+                                                <li>
+                                                    Telefones: 
+                                                    <ol>
+                                                        {cliente.getTelefones.map((telefone) => {
+                                                            return (
+                                                                <li>{telefone.getNumeroCompleto}</li>
+                                                            )
+                                                        })}
+                                                    </ol>
+                                                </li>
+                                            </ul>
+                                        </Popup>
+                                    </td>
                                 </tr>
                             )
                         })}
