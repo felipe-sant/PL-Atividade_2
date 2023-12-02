@@ -3,7 +3,19 @@ import CPF from "../modelo/cpf";
 import RG from "../modelo/rg";
 import Telefone from "../modelo/telefone";
 import Pet from "../modelo/pet";
-import { petLovers } from "../dados";
+import InputRG from "./clienteCreateRgComponent";
+
+type Props = {
+    nome: string,
+    nomeSocial: string,
+    valorCPF: string,
+    dataCPF: string,
+    rgs: Array<RG>,
+    valorRG: string,
+    dataRG: string,
+    telefones: Array<Telefone>,
+    pets: Array<Pet>
+}
 
 class Main extends Component {
     private nome!: string
@@ -11,33 +23,54 @@ class Main extends Component {
     private cpf!: CPF
     private valorCPF!: string
     private dataCPF!: string
-    private rgs!: Array<RG>
+    private rgs: Array<RG> = [] // fazer algo para mostrar os rgs ja cadastrados com o useState
     private telefones!: Array<Telefone>
     private pets!: Array<Pet>
 
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props)
         this.state = {
             nome: this.nome,
             nomeSocial: this.nomeSocial,
-            valor: this.valorCPF,
-            data: this.dataCPF,
-            rgs: this.rgs,
+            valorCPF: this.valorCPF,
+            dataCPF: this.dataCPF,
             telefones: this.telefones,
             pets: this.pets
         }
     }
 
     render() {
-        const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault()
+        const dataToString = (data: Date) => {
+            let dia = data.getDate().toString()
+            let mes = (data.getMonth() + 1).toString()
+            let ano = data.getFullYear().toString()
 
+            if (dia.length === 1) {
+                dia = "0" + dia
+            }
+
+            if (mes.length === 1) {
+                mes = "0" + mes
+            }
+
+            return dia + "/" + mes + "/" + ano
+        }
+
+        const tratametoRG = (rg: string) => {
+            if (rg.length === 9) {
+                rg = rg.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4")
+            }
+            return rg
+        }
+
+        const handleSubmit = () => {
             this.cpf = new CPF(this.valorCPF, new Date(this.dataCPF))
+            this.rgs = JSON.parse(localStorage.getItem("clienteRGs") || "[]")
 
             console.log("Nome: " + this.nome)
             console.log("Nome_Social: " + this.nomeSocial)
             console.log(this.cpf)
-            console.log("RGs: " + this.rgs)
+            console.log(this.rgs)
             console.log("Telefones: " + this.telefones)
             console.log("Pets: " + this.pets)
             console.log("")
@@ -65,7 +98,7 @@ class Main extends Component {
         return (
             <div className="main mainClienteCreate mainForm">
                 <h1>Criando um novo cliente</h1>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div className="input inputName">
                         <label htmlFor="nome">Nome</label>
                         <input type="text" onChange={handleNomeChange} name="nome" id="nome" value={this.nome} placeholder="Nome do cliente"/>
@@ -76,11 +109,8 @@ class Main extends Component {
                     </div>
                     <div className="input inputCPF">
                         <label htmlFor="cpf">CPF</label>
-                        <input type="text" onChange={handleValorChange} name="valor" id="valor" value={this.valorCPF} placeholder="000.000.000-00" maxLength={14} minLength={14}/>
-                        <input type="date" onChange={handleDataChange} name="data" id="data" value={this.dataCPF} placeholder="Data de emissão do CPF"/>
-                    </div>
-                    <div className="input inputRGs">
-                        {/* RG FODA */}
+                        <input type="text" onChange={handleValorChange} name="valorCPF" id="valorCPF" value={this.valorCPF} placeholder="000.000.000-00" maxLength={14} minLength={14}/>
+                        <input type="date" onChange={handleDataChange} name="dataCPF" id="dataCPF" value={this.dataCPF} placeholder="Data de emissão do CPF"/>
                     </div>
                     <div className="input inputTelefones">
                         {/* Telefone FODA */}
@@ -88,11 +118,30 @@ class Main extends Component {
                     <div className="input inputPets">
                         {/* Pet FODA */}
                     </div>
-                    <div className="input inputSubmit">
-                        <a href="/cliente" className="cancel">Cancelar</a>
-                        <input type="submit" value="Criar"/>
-                    </div>
                 </form>
+
+                <div className="input inputArray inputRGs">
+                    <InputRG />
+                    <hr />
+                    <table className="tableInput tableInputRG">
+                        <tr>
+                            <th>RG</th>
+                            <th className="center">Data de emissão</th>
+                        </tr>
+                            {this.rgs.map((rg) => {
+                                return (
+                                    <tr>
+                                        <td>{tratametoRG(rg.getValor)}</td>
+                                        <td className="center">{dataToString(rg.getDataEmissao)}</td>
+                                    </tr>
+                                )
+                            })}
+                    </table>
+                </div>
+                <div className="sendForm">
+                    <a href="/cliente" className="cancel">Cancelar</a>
+                    <input type="button" onClick={handleSubmit} value="Criar"/>
+                </div>
             </div>
         )
     }

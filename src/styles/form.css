@@ -26,7 +26,7 @@
     flex-direction: column;
 }
 
-.mainForm form .input {
+.mainForm .input {
     margin: 10px 0px;
     max-width: 350px;
     width: 100%;
@@ -35,7 +35,7 @@
     flex-direction: column;
 }
 
-.mainForm form .input label {
+.mainForm .input label {
     margin-bottom: 5px;
     font-weight: 600;
 
@@ -44,11 +44,11 @@
     color: var(--tertiary-color)
 }
 
-.mainForm form .input label::after {
+.mainForm .input label::after {
     content: ":";
 }
 
-.mainForm form .input input {
+.mainForm .input input {
     padding: 7px;
     background-color: var(--main-color);
     border: 1px solid var(--secondary-color);
@@ -61,15 +61,15 @@
     transition: all 0.2s ease-in-out;
 }
 
-.mainForm form .input input::placeholder {
+.mainForm .input input::placeholder {
     color: var(--placeholder-color);
 }
 
-.mainForm form .input input:focus {
+.mainForm .input input:focus {
     border: 1px solid var(--red-color);
 }
 
-.mainForm form .inputSubmit {
+.mainForm .inputSubmit {
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
@@ -77,11 +77,11 @@
     flex-direction: row;
 }
 
-.mainForm form .inputSubmit.inputSolo {
+.mainForm .inputSubmit.inputSolo {
     justify-content: end;
 }
 
-.mainForm form .inputSubmit .cancel {
+.mainForm .inputSubmit .cancel {
     padding: 7px 10px;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
@@ -96,11 +96,11 @@
     text-decoration: none;
 }
 
-.mainForm form .inputSubmit .cancel:hover {
+.mainForm .inputSubmit .cancel:hover {
     color: var(--red-color);
 }
 
-.mainForm form .inputSubmit input {
+.mainForm .inputSubmit input {
     padding: 7px 10px;
     background-color: var(--main-color);
     border: 1px solid var(--secondary-color);
@@ -115,7 +115,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.mainForm form .inputSubmit input:hover {
+.mainForm .inputSubmit input:hover {
     background-color: var(--red-color);
 }
 
@@ -149,4 +149,116 @@
 
 .mainForm input[type="date"]::-webkit-datetime-edit-fields-wrapper {
     color: var(--tertiary-color);
+}
+
+.mainForm .inputArray {
+    border: 3px solid var(--main-color);
+    margin: auto;
+    padding: 20px;
+}
+
+.mainForm .inputArray hr {
+    border: 1px solid var(--main-color);
+    margin: 10px 0px 20px 0px;
+}
+
+.mainForm .formInput {
+    text-align: left;
+    padding: 0px;
+
+    display: flex;
+    justify-content: left;
+    align-items: baseline !important;
+    flex-direction: column;
+}
+
+.mainForm .formInput .inputSubmit {
+    margin-top: 10px;
+    justify-content: end;
+}
+
+.mainForm .formInput .inputSubmit input {
+    background-image: url(../images/addIcon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 32px;
+    width: 32px;
+}
+
+.mainForm .formInput .inputSubmit input:hover {
+    background-color: var(--main-color);
+    background-image: url(../images/addIcon-hover.svg);
+}
+
+.mainForm .tableInput {
+    color: var(--tertiary-color);
+}
+
+.mainForm .tableInput th {
+    background-color: var(--main-color);
+    padding: 7px;
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.mainForm .tableInput td {
+    padding: 5px;
+    text-align: left;
+    font-size: 0.9em;
+    font-family: var(--text-font);
+}
+
+.mainForm .tableInput .center {
+    text-align: center;
+}
+
+.mainForm .sendForm {
+    max-width: 350px;
+    margin: auto;
+    margin-bottom: 40px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainForm .sendForm .cancel {
+    padding: 7px 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    outline: none;
+    color: var(--tertiary-color);
+
+    font-family: var(--text-font);
+    font-size: 1em;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.mainForm .sendForm .cancel:hover {
+    color: var(--red-color);
+}
+
+.mainForm .sendForm input {
+    padding: 7px 10px;
+    background-color: var(--main-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    outline: none;
+    color: var(--tertiary-color);
+
+    font-family: var(--text-font);
+    font-size: 1em;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.mainForm .sendForm input:hover {
+    background-color: var(--red-color);
 }
