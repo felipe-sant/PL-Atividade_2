@@ -17,7 +17,7 @@ class InputRG extends Component<{}, Props> {
         this.state = {
             valorRG: this.valorRG,
             dataRG: this.dataRG,
-            rgs: this.rgs
+            rgs: [new RG("00.00.000-0", new Date("1111-11-11"))]
         }
     }
 
@@ -25,7 +25,7 @@ class InputRG extends Component<{}, Props> {
         const dataToString = (data: Date) => {
             let nova_data = new Date(data)
 
-            let dia = nova_data.getDate().toString()
+            let dia = (nova_data.getDate() + 1).toString()
             let mes = (nova_data.getMonth() + 1).toString()
             let ano = nova_data.getFullYear().toString()
 
@@ -35,6 +35,10 @@ class InputRG extends Component<{}, Props> {
 
             if (mes.length === 1) {
                 mes = "0" + mes
+            }
+
+            if (ano == "1111") {
+                return "00" + "/" + "00" + "/" + "0000"
             }
 
             return dia + "/" + mes + "/" + ano
@@ -49,6 +53,7 @@ class InputRG extends Component<{}, Props> {
 
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault()
+            console.log(this.dataRG)
             this.rgs.push(new RG(this.valorRG, new Date(this.dataRG)))
 
             this.valorRG = ""
@@ -89,14 +94,14 @@ class InputRG extends Component<{}, Props> {
                         <th>RG</th>
                         <th className="center">Data de emissão</th>
                     </tr>
-                        {this.state.rgs.map((rg) => {
-                            return (
-                                <tr>
-                                    <td>{tratametoRG(rg.valor)}</td>
-                                    <td className="center">{dataToString(rg.dataEmissao)}</td>
-                                </tr>
-                            )
-                        })}
+                    {this.state.rgs.map((rg) => {
+                        return (
+                            <tr>
+                                <td>{tratametoRG(rg.valor)}</td>
+                                <td className="center">{dataToString(rg.dataEmissao)}</td>
+                            </tr>
+                        )
+                    })}
                 </table>
             </div>
         )

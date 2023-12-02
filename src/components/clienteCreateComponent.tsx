@@ -4,13 +4,13 @@ import RG from "../modelo/rg";
 import Telefone from "../modelo/telefone";
 import Pet from "../modelo/pet";
 import InputRG from "./clienteCreateRgComponent";
+import InputTelefone from "./clienteCreateTelefoneComponent";
 
 type Props = {
     nome: string,
     nomeSocial: string,
     valorCPF: string,
     dataCPF: string,
-    telefones: Array<Telefone>,
     pets: Array<Pet>
 }
 
@@ -20,8 +20,8 @@ class Main extends Component<{}, Props> {
     private cpf!: CPF
     private valorCPF!: string
     private dataCPF!: string
-    private rgs: Array<RG> = [] // fazer algo para mostrar os rgs ja cadastrados com o useState
-    private telefones!: Array<Telefone>
+    private rgs: Array<RG> = []
+    private telefones: Array<Telefone> = []
     private pets!: Array<Pet>
 
     constructor(props: {}) {
@@ -31,7 +31,6 @@ class Main extends Component<{}, Props> {
             nomeSocial: this.nomeSocial,
             valorCPF: this.valorCPF,
             dataCPF: this.dataCPF,
-            telefones: this.telefones,
             pets: this.pets,
         }
     }
@@ -40,13 +39,13 @@ class Main extends Component<{}, Props> {
         const handleSubmit = () => {
             this.cpf = new CPF(this.valorCPF, new Date(this.dataCPF))
             this.rgs = JSON.parse(localStorage.getItem("clienteRGs") || "[]")
-            console.log(this.rgs)
+            this.telefones = JSON.parse(localStorage.getItem("clienteTelefones") || "[]")
 
             console.log("Nome: " + this.nome)
             console.log("Nome_Social: " + this.nomeSocial)
             console.log(this.cpf)
             console.log(this.rgs)
-            console.log("Telefones: " + this.telefones)
+            console.log(this.telefones)
             console.log("Pets: " + this.pets)
             console.log("")
         }
@@ -87,14 +86,9 @@ class Main extends Component<{}, Props> {
                         <input type="text" onChange={handleValorChange} name="valorCPF" id="valorCPF" value={this.valorCPF} placeholder="000.000.000-00" maxLength={14} minLength={14}/>
                         <input type="date" onChange={handleDataChange} name="dataCPF" id="dataCPF" value={this.dataCPF} placeholder="Data de emissão do CPF"/>
                     </div>
-                    <div className="input inputTelefones">
-                        {/* Telefone FODA */}
-                    </div>
-                    <div className="input inputPets">
-                        {/* Pet FODA */}
-                    </div>
                 </form>
                 <InputRG />
+                <InputTelefone />
                 <div className="sendForm">
                     <a href="/cliente" className="cancel">Cancelar</a>
                     <input type="button" onClick={handleSubmit} value="Criar"/>

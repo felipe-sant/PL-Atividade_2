@@ -153,8 +153,11 @@
 
 .mainForm .inputArray {
     border: 3px solid var(--main-color);
-    margin: auto;
+    border-radius: 20px;
+    margin: 10px auto;
+    margin-bottom: 30px;
     padding: 20px;
+    padding-bottom: 25px;
 }
 
 .mainForm .inputArray hr {
