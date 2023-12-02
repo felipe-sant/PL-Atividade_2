@@ -36,8 +36,14 @@ class Main extends Component<{}, Props> {
     }
 
     render() {
+        const addUmDia = (data: Date) => {
+            let nova_data = new Date(data)
+            nova_data.setDate(nova_data.getDate() + 1)
+            return nova_data
+        }
+
         const handleSubmit = () => {
-            this.cpf = new CPF(this.valorCPF, new Date(this.dataCPF))
+            this.cpf = new CPF(this.valorCPF, addUmDia(new Date(this.dataCPF)))
             this.rgs = JSON.parse(localStorage.getItem("clienteRGs") || "[]")
             this.telefones = JSON.parse(localStorage.getItem("clienteTelefones") || "[]")
 
@@ -47,7 +53,7 @@ class Main extends Component<{}, Props> {
             console.log(this.rgs)
             console.log(this.telefones)
             console.log("Pets: " + this.pets)
-            console.log("")
+            console.log("--------------------------")
         }
 
         const handleNomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {

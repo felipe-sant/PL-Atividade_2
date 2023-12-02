@@ -22,10 +22,16 @@ class InputRG extends Component<{}, Props> {
     }
 
     render() {
-        const dataToString = (data: Date) => {
+        const addUmDia = (data: Date) => {
             let nova_data = new Date(data)
+            nova_data.setDate(nova_data.getDate() + 1)
+            return nova_data
+        }
 
-            let dia = (nova_data.getDate() + 1).toString()
+        const dataToString = (data: Date) => {
+            let nova_data = addUmDia(data)
+
+            let dia = (nova_data.getDate()).toString()
             let mes = (nova_data.getMonth() + 1).toString()
             let ano = nova_data.getFullYear().toString()
 
