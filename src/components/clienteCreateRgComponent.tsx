@@ -59,7 +59,6 @@ class InputRG extends Component<{}, Props> {
 
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault()
-            console.log(this.dataRG)
             this.rgs.push(new RG(this.valorRG, new Date(this.dataRG)))
 
             this.valorRG = ""

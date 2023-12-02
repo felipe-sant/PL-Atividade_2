@@ -9,13 +9,13 @@ export default class Cliente {
     public id:number
     public nome: string
     public nomeSocial: string
-    private cpf: CPF
-    private rgs: Array<RG>
+    public cpf: CPF
+    public rgs: Array<RG>
     private dataCadastro: Date
-    private telefones!: Array<Telefone>
-    private produtosConsumidos!: Array<Produto>
-    private servicosConsumidos!: Array<Servico>
-    private pets!: Array<Pet>
+    public telefones!: Array<Telefone>
+    public produtosConsumidos!: Array<Produto>
+    public servicosConsumidos!: Array<Servico>
+    public pets!: Array<Pet>
     public valorTotalConsumido: number = 0
     constructor(nome: string, nomeSocial: string, cpf: CPF, id:number, rgs: Array<RG>, telefones: Array<Telefone>, pets:Array<Pet>, produtosConsumidos:Array<Produto>, servicosConsumidos: Array<Servico>)
     constructor(nome: string, nomeSocial: string, cpf: CPF, id:number, rgs: Array<RG>, telefones: Array<Telefone>, pets:Array<Pet>, produtosConsumidos:Array<Produto>)
@@ -23,7 +23,7 @@ export default class Cliente {
     constructor(nome: string, nomeSocial: string, cpf: CPF, id:number, rgs: Array<RG>, telefones: Array<Telefone>)
     constructor(nome: string, nomeSocial: string, cpf: CPF, id:number, rgs: Array<RG>)
     constructor(nome: string, nomeSocial: string, cpf: CPF, id:number, rgs: Array<RG>, telefones?: Array<Telefone>, pets?:Array<Pet>, produtosConsumidos?:Array<Produto>, servicosConsumidos?: Array<Servico>)
-     {
+    {
         this.id = id
         this.nome = nome
         this.nomeSocial = nomeSocial
