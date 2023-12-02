@@ -10,14 +10,11 @@ type Props = {
     nomeSocial: string,
     valorCPF: string,
     dataCPF: string,
-    rgs: Array<RG>,
-    valorRG: string,
-    dataRG: string,
     telefones: Array<Telefone>,
     pets: Array<Pet>
 }
 
-class Main extends Component {
+class Main extends Component<{}, Props> {
     private nome!: string
     private nomeSocial!: string
     private cpf!: CPF
@@ -27,7 +24,7 @@ class Main extends Component {
     private telefones!: Array<Telefone>
     private pets!: Array<Pet>
 
-    constructor(props: Props) {
+    constructor(props: {}) {
         super(props)
         this.state = {
             nome: this.nome,
@@ -35,37 +32,15 @@ class Main extends Component {
             valorCPF: this.valorCPF,
             dataCPF: this.dataCPF,
             telefones: this.telefones,
-            pets: this.pets
+            pets: this.pets,
         }
     }
 
     render() {
-        const dataToString = (data: Date) => {
-            let dia = data.getDate().toString()
-            let mes = (data.getMonth() + 1).toString()
-            let ano = data.getFullYear().toString()
-
-            if (dia.length === 1) {
-                dia = "0" + dia
-            }
-
-            if (mes.length === 1) {
-                mes = "0" + mes
-            }
-
-            return dia + "/" + mes + "/" + ano
-        }
-
-        const tratametoRG = (rg: string) => {
-            if (rg.length === 9) {
-                rg = rg.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4")
-            }
-            return rg
-        }
-
         const handleSubmit = () => {
             this.cpf = new CPF(this.valorCPF, new Date(this.dataCPF))
             this.rgs = JSON.parse(localStorage.getItem("clienteRGs") || "[]")
+            console.log(this.rgs)
 
             console.log("Nome: " + this.nome)
             console.log("Nome_Social: " + this.nomeSocial)
@@ -119,25 +94,7 @@ class Main extends Component {
                         {/* Pet FODA */}
                     </div>
                 </form>
-
-                <div className="input inputArray inputRGs">
-                    <InputRG />
-                    <hr />
-                    <table className="tableInput tableInputRG">
-                        <tr>
-                            <th>RG</th>
-                            <th className="center">Data de emissão</th>
-                        </tr>
-                            {this.rgs.map((rg) => {
-                                return (
-                                    <tr>
-                                        <td>{tratametoRG(rg.getValor)}</td>
-                                        <td className="center">{dataToString(rg.getDataEmissao)}</td>
-                                    </tr>
-                                )
-                            })}
-                    </table>
-                </div>
+                <InputRG />
                 <div className="sendForm">
                     <a href="/cliente" className="cancel">Cancelar</a>
                     <input type="button" onClick={handleSubmit} value="Criar"/>

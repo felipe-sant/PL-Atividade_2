@@ -1,6 +1,6 @@
 export default class RG {
-    private valor: string
-    private dataEmissao: Date
+    public valor: string
+    public dataEmissao: Date
     constructor(valor: string, dataEmissao: Date) {
         this.valor = valor
         this.dataEmissao = dataEmissao
