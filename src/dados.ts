@@ -4,6 +4,7 @@ import CadastroCliente from "./negocio/clientes/cadastroCliente";
 import RG from "./modelo/rg";
 import Telefone from "./modelo/telefone";
 import CadastroProduto from "./negocio/produtos/cadastroProdutos";
+import CadastroServico from "./negocio/servicos/cadastroServico";
 
 export var petLovers = new Empresa()
  
@@ -59,8 +60,21 @@ if (listaProdutos != null) {
     }
 }
 
-console.log(listaProdutos)
-console.log(petLovers.getProdutos)
+let listaServicos = localStorage.getItem('servicos')
+listaServicos = listaServicos ? JSON.parse(listaServicos) : []
+if (listaServicos != null) {
+    for (let i = 0; i < listaServicos.length; i++) {
+        if (listaServicos[i]){
+            let servicos = listaServicos[i]
+            let nome = servicos[0]
+            let valor = servicos[1]
+            let id = servicos[2]
+
+            let cadastro = new CadastroServico(petLovers, nome, valor, id)
+            cadastro.cadastrar()
+        }
+    }
+}
 
 /*
 let listaClientes = localStorage.getItem('clientes')

@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { petLovers } from "../dados";
-import CadastroProduto from "../negocio/produtos/cadastroProdutos";
 
 let ultimoId = 0
 if (petLovers.getProdutos.length > 0) {

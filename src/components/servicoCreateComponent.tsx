@@ -2,12 +2,19 @@ import { Component } from "react";
 import CadastroServico from "../negocio/servicos/cadastroServico";
 import { petLovers } from "../dados";
 
+let ultimoId = 0
+if (petLovers.getServicos.length > 0) {
+    ultimoId = petLovers.getServicos[petLovers.getServicos.length - 1].id
+}
+
 class Main extends Component {
+    private id!: number
     private nome!: string
     private valor!: number
 
     constructor(props: any) {
         super(props)
+        this.id = ultimoId + 1
         this.state = {
             nome: this.nome,
             valor: this.valor
@@ -15,16 +22,14 @@ class Main extends Component {
     }
 
     render() {
-        const cadastrar = (nome:string, valor:number) => {
-            let cadastro = new CadastroServico(petLovers, nome, valor)
-            cadastro.cadastrar()
-            window.location.href = "/servico"
-        }
-
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
             e.preventDefault()
             if (this.nome !== undefined && this.valor !== undefined) {
-                cadastrar(this.nome, this.valor)
+                let servico = [this.nome, this.valor, this.id]
+                let servicos = JSON.parse(localStorage.getItem("servicos") || "[]")
+                servicos.push(servico)
+                localStorage.setItem("servicos", JSON.stringify(servicos))
+                window.location.href = "/servico"
             } else {
                 alert("Preencha todos os campos!")
             }
@@ -49,7 +54,8 @@ class Main extends Component {
                         <input type="text" name="nome" id="nome" value={this.nome} placeholder="Nome do serviço" onChange={handleNomeChange}/>
                     </div>
                     <div className="input inputValue">
-han                        <input type="number" name="valor" id="valor" value={this.valor} placeholder="0" onChange={handleValorChange}/>
+                        <label htmlFor="valor">Valor</label>
+                        <input type="number" name="valor" id="valor" value={this.valor} placeholder="0" onChange={handleValorChange}/>
                     </div>
                     <div className="input inputSubmit">
                         <a href="/servico" className="cancel">Cancelar</a>
