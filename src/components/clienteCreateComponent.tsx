@@ -15,7 +15,13 @@ type Props = {
     dataCPF: string,
 }
 
+let ultimoId = 0
+if (petLovers.getClientes.length > 0) {
+    ultimoId = petLovers.getClientes[petLovers.getClientes.length - 1].id
+}
+
 class Main extends Component<{}, Props> {
+    private id!: number
     private nome!: string
     private nomeSocial: string = ""
     private cpf!: CPF
@@ -26,6 +32,7 @@ class Main extends Component<{}, Props> {
 
     constructor(props: {}) {
         super(props)
+        this.id = ultimoId + 1
         this.state = {
             nome: this.nome,
             nomeSocial: this.nomeSocial,
@@ -61,7 +68,7 @@ class Main extends Component<{}, Props> {
             if (this.telefones.length === 0) { telefonesValid = false } else { telefonesValid = true }
 
             if (nomeValid && cpfValid && rgsValid && telefonesValid) {
-                let cliente = [this.nome, this.nomeSocial, this.cpf, this.rgs, this.telefones]
+                let cliente = [this.nome, this.nomeSocial, this.cpf, this.rgs, this.telefones, this.id]
                 let clientes = JSON.parse(localStorage.getItem("clientes") || "[]")
                 clientes.push(cliente)
                 localStorage.setItem("clientes", JSON.stringify(clientes))

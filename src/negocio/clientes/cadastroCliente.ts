@@ -13,7 +13,8 @@ export default class CadastroCliente extends Cadastro {
     private cpf: CPF
     private rgs: Array<RG>
     private telefones: Array<Telefone>
-    constructor(empresa:Empresa, nome:string, nomeSocial:string, cpf:CPF, rgs:Array<RG>, telefones:Array<Telefone>) {
+    private id:number
+    constructor(empresa:Empresa, nome:string, nomeSocial:string, cpf:CPF, rgs:Array<RG>, telefones:Array<Telefone>, id:string) {
         super()
         this.empresa = empresa
         this.clientes = empresa.getClientes
@@ -22,20 +23,11 @@ export default class CadastroCliente extends Cadastro {
         this.cpf = cpf
         this.rgs = rgs
         this.telefones = telefones
+        this.id = new Number(id).valueOf()
     }
 
     public cadastrar(): void {
-        let idUltimoCliente = 0
-
-        if (this.clientes.length !== 0) {
-            idUltimoCliente = this.clientes[this.clientes.length-1].id
-        }
-
-        let id = 1
-        if (this.clientes.length !== 0) {
-            id = idUltimoCliente + 1
-        }
-        var cliente = new Cliente(this.nome, this.nomeSocial, this.cpf, id, this.rgs, this.telefones)
+        var cliente = new Cliente(this.nome, this.nomeSocial, this.cpf, this.id, this.rgs, this.telefones)
         this.clientes.push(cliente)
         this.empresa.setClientes(this.clientes)
     }

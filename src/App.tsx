@@ -20,6 +20,7 @@ import ServicoPageDelete from "./pages/servicoDelete";
 import ProdutoPageEdit from "./pages/produtoEdit";
 import ServicoPageEdit from "./pages/servicoEdit";
 import ClientePageCreate from "./pages/clienteCreate";
+import ClientePageDelete from "./pages/clienteDelete";
 
 class App extends Component<{empresa: Empresa}> {
   constructor(props: any) {
@@ -35,7 +36,7 @@ class App extends Component<{empresa: Empresa}> {
           <Route path="/cliente" element={<ClientePage />} />
           <Route path="/cliente/create" element={<ClientePageCreate />} />
           <Route path="/cliente/edit" element={<ClientePage />} />
-          <Route path="/cliente/delete" element={<ClientePage />} />
+          <Route path="/cliente/delete" element={<ClientePageDelete />} />
 
           <Route path="/produto" element={<ProdutoPage />} />
           <Route path="/produto/create" element={<ProdutoPageCreate />} />
