@@ -18,6 +18,7 @@ class Main extends Component {
                         </a>
                     </div>
                 </div>
+                <button onClick={()=>{localStorage.clear()}}>limpar a porra toda</button>
             </div> 
         )
     }

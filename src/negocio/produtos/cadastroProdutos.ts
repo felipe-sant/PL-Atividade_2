@@ -3,35 +3,26 @@ import Produto from "../../modelo/produto";
 import Cadastro from "../cadastro";
 
 export default class CadastroProduto extends Cadastro {
+    private empresa:Empresa
     private produtos: Array<Produto>
     private nome: string
     private valor: number
-    constructor(empresa: Empresa, nome: string, valor: number) {
+    private id:number
+    constructor(empresa:Empresa, nome: string, valor: string, id:string) {
         super()
+        this.empresa = empresa
         this.produtos = empresa.getProdutos
         this.nome = nome
-        this.valor = valor
+        this.valor = new Number(valor).valueOf()
+        this.id = new Number(id).valueOf()
     }
 
     public cadastrar(): void {
-        let idUltimoProduto = 0
-
-        if (this.produtos.length !== 0) {
-            idUltimoProduto = this.produtos[this.produtos.length-1].id
-        }
-
-        let id = 1
-        if (this.produtos.length !== 0) {
-            id = idUltimoProduto + 1
-        }
-
         let produto = new Produto()
-        produto.id = id
+        produto.id = this.id
         produto.nome = this.nome
         produto.valor = this.valor
-
         this.produtos.push(produto)
-
-        localStorage.setItem("produtos", JSON.stringify(this.produtos))
+        this.empresa.setProdutos(this.produtos)
     }
 }

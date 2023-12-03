@@ -2,12 +2,19 @@ import { Component } from "react";
 import { petLovers } from "../dados";
 import CadastroProduto from "../negocio/produtos/cadastroProdutos";
 
+let ultimoId = 0
+if (petLovers.getProdutos.length > 0) {
+    ultimoId = petLovers.getProdutos[petLovers.getProdutos.length - 1].id
+}
+
 class Main extends Component {
+    private id!: number
     private nome!: string
     private valor!: number
 
     constructor(props: any) {
         super(props)
+        this.id = ultimoId + 1
         this.state = {
             nome: this.nome,
             valor: this.valor
@@ -15,16 +22,14 @@ class Main extends Component {
     }
 
     render() {
-        const cadastrar = (nome:string, valor:number) => {
-            let cadastro = new CadastroProduto(petLovers, nome, valor)
-            cadastro.cadastrar()
-            window.location.href = "/produto"
-        }
-
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
             e.preventDefault()
             if (this.nome !== undefined && this.valor !== undefined) {
-                cadastrar(this.nome, this.valor)
+                let produto = [this.nome, this.valor, this.id]
+                let produtos = JSON.parse(localStorage.getItem("produtos") || "[]")
+                produtos.push(produto)
+                localStorage.setItem("produtos", JSON.stringify(produtos))
+                window.location.href = "/produto"
             } else {
                 alert("Preencha todos os campos!")
             }

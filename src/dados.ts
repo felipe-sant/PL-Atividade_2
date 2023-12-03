@@ -3,10 +3,7 @@ import Empresa from "./modelo/empresa";
 import CadastroCliente from "./negocio/clientes/cadastroCliente";
 import RG from "./modelo/rg";
 import Telefone from "./modelo/telefone";
-
-/*
-localStorage.clear()
-*/
+import CadastroProduto from "./negocio/produtos/cadastroProdutos";
 
 export var petLovers = new Empresa()
  
@@ -45,6 +42,24 @@ if (listaClientes != null) {
         }
     }
 }
+
+let listaProdutos = localStorage.getItem('produtos')
+listaProdutos = listaProdutos ? JSON.parse(listaProdutos) : []
+if (listaProdutos != null) {
+    for (let i = 0; i < listaProdutos.length; i++) {
+        if (listaProdutos[i]){
+            let produto = listaProdutos[i]
+            let nome = produto[0]
+            let valor = produto[1]
+            let id = produto[2]
+
+            let cadastro = new CadastroProduto(petLovers, nome, valor, id)
+            cadastro.cadastrar()
+        }
+    }
+}
+console.log(listaProdutos)
+console.log(petLovers.getProdutos)
 
 /*
 let listaClientes = localStorage.getItem('clientes')
