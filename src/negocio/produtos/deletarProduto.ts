@@ -1,5 +1,3 @@
-import Empresa from "../../modelo/empresa";
-import Produto from "../../modelo/produto";
 import Deletar from "../deletar";
 
 let produtos = localStorage.getItem('produtos')

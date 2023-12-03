@@ -1,39 +1,35 @@
 import { Component } from "react";
 import { petLovers } from "../dados";
 import DeletarServico from "../negocio/servicos/deletarServico";
+import Empresa from "../modelo/empresa";
+import Produto from "../modelo/produto";
 
 class Main extends Component {
     private id!: number
+    private empresa:Empresa
 
     constructor(props: any) {
         super(props)
+        this.empresa = petLovers
         this.state = {
             id: this.id
         }
     }
 
     render() {
-        const deletar = (id:number) => {
-            let deletando = new DeletarServico(petLovers, id)
-            deletando.deletar()
-        }
-
-        const servicoExiste = (id:number) => {
-            let deletando = new DeletarServico(petLovers, id)
-            return deletando.servicoExiste()
-        }
-
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault()
-            if (this.id !== undefined) {
-                if (servicoExiste(this.id)) {
-                    deletar(this.id)
-                    window.location.href = "/servico"
-                } else {
-                    alert("Serviço não existe")
-                }
+            
+            let servicoExiste = false
+
+            this.empresa.getServicos.forEach(servico => { if (servico.id === this.id) { servicoExiste = true }})
+
+            if (servicoExiste) {
+                let deletar = new DeletarServico(this.id)
+                deletar.deletar()
+                window.location.href = "/servico"
             } else {
-                alert("Preencha todos os campos!") 
+                alert("Serviço não encontrado")
             }
         }
 

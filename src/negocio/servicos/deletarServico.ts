@@ -1,28 +1,24 @@
-import { get } from "http";
-import Empresa from "../../modelo/empresa";
-import Servico from "../../modelo/servico";
 import Deletar from "../deletar";
 
+let servico = localStorage.getItem('servicos')
+
 export default class DeletarServico extends Deletar {
-    private servicos: Array<Servico>
+    private servicos: any
     private id: number
 
-    constructor(empresa: Empresa, id:number) {
+    constructor(id:number) {
         super()
-        this.servicos = empresa.getServicos
+        this.servicos = servico
         this.id = id
     }
 
-    public servicoExiste(): boolean {
-        let produtos = this.servicos.filter(servico => servico.id === this.id)
-        if (produtos.length === 0) {
-            return false
-        }
-        return true
-    }
-
     public deletar(): void {
-        this.servicos = this.servicos.filter(servico => servico.id !== this.id)
-        localStorage.setItem("servicos", JSON.stringify(this.servicos))
+        console.log(this.servicos)
+        this.servicos = this.servicos ? JSON.parse(this.servicos) : []
+        this.servicos = this.servicos.filter((servico:any) => {
+            return servico[2] != this.id
+        })
+        console.log(this.servicos)
+        localStorage.setItem('servicos', JSON.stringify(this.servicos))
     }
 }
