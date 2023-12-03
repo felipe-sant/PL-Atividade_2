@@ -2,26 +2,25 @@ import Empresa from "../../modelo/empresa";
 import Produto from "../../modelo/produto";
 import Deletar from "../deletar";
 
+let produtos = localStorage.getItem('produtos')
+
 export default class DeletarProduto extends Deletar {
-    private produtos: Array<Produto>
+    private produtos: any
     private id: number
 
-    constructor(empresa: Empresa, id:number) {
+    constructor(id:number) {
         super()
-        this.produtos = empresa.getProdutos
+        this.produtos = produtos
         this.id = id
     }
 
-    public produtoExiste(): boolean {
-        let produtos = this.produtos.filter(produto => produto.id === this.id)
-        if (produtos.length === 0) {
-            return false
-        }
-        return true
-    }
-
     public deletar(): void {
-        this.produtos = this.produtos.filter(produto => produto.id !== this.id)
-        localStorage.setItem("produtos", JSON.stringify(this.produtos))
+        console.log(this.produtos)
+        this.produtos = this.produtos ? JSON.parse(this.produtos) : []
+        this.produtos = this.produtos.filter((produto:any) => {
+            return produto[2] != this.id
+        })
+        console.log(this.produtos)
+        localStorage.setItem('produtos', JSON.stringify(this.produtos))
     }
 }

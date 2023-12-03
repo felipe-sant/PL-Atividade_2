@@ -58,6 +58,7 @@ if (listaProdutos != null) {
         }
     }
 }
+
 console.log(listaProdutos)
 console.log(petLovers.getProdutos)
 
