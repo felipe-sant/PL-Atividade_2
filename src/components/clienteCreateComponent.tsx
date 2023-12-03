@@ -39,6 +39,8 @@ class Main extends Component<{}, Props> {
             valorCPF: this.valorCPF,
             dataCPF: this.dataCPF,
         }
+        localStorage.setItem("clienteRGs", "")
+        localStorage.setItem("clienteTelefone", "")
     }
 
     render() {
@@ -80,9 +82,9 @@ class Main extends Component<{}, Props> {
                 } else if (!cpfValid) {
                     alert("CPF inválido")
                 } else if (!rgsValid) {
-                    console.log("RG inválido")
+                    alert("RG inválido")
                 } else if (!telefonesValid) {
-                    console.log("Telefone inválido")
+                    alert("Telefone inválido")
                 }
             }
         }

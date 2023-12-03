@@ -3,7 +3,7 @@ import Empresa from "./modelo/empresa";
 import CadastroCliente from "./negocio/clientes/cadastroCliente";
 import RG from "./modelo/rg";
 import Telefone from "./modelo/telefone";
-import DeletarCliente from "./negocio/clientes/deletarCliente";
+
 /*
 localStorage.clear()
 */
@@ -12,7 +12,6 @@ export var petLovers = new Empresa()
  
 let listaClientes = localStorage.getItem('clientes')
 listaClientes = listaClientes ? JSON.parse(listaClientes) : []
-console.log(listaClientes)
 if (listaClientes != null) {
     for (let i = 0; i < listaClientes.length; i++) {
         if (listaClientes[i]) {

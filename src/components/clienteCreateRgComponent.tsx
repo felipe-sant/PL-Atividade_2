@@ -10,14 +10,24 @@ type Props = {
 class InputRG extends Component<{}, Props> {
     private valorRG!: string
     private dataRG!: string
-    private rgs: Array<RG> = []
+    private rgs: Array<RG>
 
     constructor(props: {}) {
         super(props)
+        let rgs = localStorage.getItem("clienteRGs")
+        rgs = rgs ? JSON.parse(rgs) : []
+        let listaRGs:Array<RG> = []
+        if (rgs != null) {
+            for (let i = 0; i < rgs?.length; i++) {
+                // @ts-ignore
+                listaRGs.push(new RG(rgs[i].valor, rgs[i].dataEmissao))
+            }
+        }
+        this.rgs = listaRGs
         this.state = {
             valorRG: this.valorRG,
             dataRG: this.dataRG,
-            rgs: [new RG("00.00.000-0", new Date("1111-11-11"))]
+            rgs: this.rgs
         }
     }
 
@@ -51,21 +61,27 @@ class InputRG extends Component<{}, Props> {
         }
 
         const tratametoRG = (rg: string) => {
-            if (rg.length === 9) {
-                rg = rg.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4")
+            if (rg !== undefined) {
+                if (rg.length === 9) {
+                    rg = rg.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4")
+                }
             }
             return rg
         }
 
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault()
-            this.rgs.push(new RG(this.valorRG, new Date(this.dataRG)))
+            if (this.valorRG === undefined || this.dataRG === undefined || this.valorRG === "" || this.dataRG === "") {
+                alert("Preench todos os campos do RG")
+            } else {
+                this.rgs.push(new RG(this.valorRG, new Date(this.dataRG)))
 
-            this.valorRG = ""
-            this.dataRG = ""
-            this.setState({rgs: this.rgs})
+                this.valorRG = ""
+                this.dataRG = ""
+                this.setState({rgs: this.rgs})
 
-            localStorage.setItem("clienteRGs", JSON.stringify(this.rgs))
+                localStorage.setItem("clienteRGs", JSON.stringify(this.rgs))
+            }
         }
 
         const handleValorChange = (e: React.ChangeEvent<HTMLInputElement>) => {

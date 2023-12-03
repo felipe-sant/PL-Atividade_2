@@ -164,9 +164,17 @@ body {
     padding-bottom: 25px;
 }
 
+.mainForm .item .inputArray {
+    border: 3px solid var(--secondary-color);
+}
+
 .mainForm .inputArray hr {
     border: 1px solid var(--main-color);
     margin: 10px 0px 20px 0px;
+}
+
+.mainForm .item .inputArray hr {
+    border: 1px solid var(--secondary-color);
 }
 
 .mainForm .formInput {
@@ -208,6 +216,10 @@ body {
     text-align: left;
     font-size: 0.9em;
     font-weight: 600;
+}
+
+.mainForm .item .tableInput th {
+    background-color: var(--secondary-color);
 }
 
 .mainForm .tableInput td {

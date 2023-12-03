@@ -10,29 +10,41 @@ type Props = {
 class InputTelefone extends Component<{}, Props> {
     private ddd!: string
     private numero!: string
-    private telefones: Array<Telefone> = []
+    private telefones: Array<Telefone> = [] // fazer essa porra funcionar na hora de pegar do localStorage
 
     constructor(props: {}) {
         super(props)
+        let telefones = localStorage.getItem("clienteTelefones")
+        telefones = telefones ? JSON.parse(telefones) : []
+        let listaTelefones:Array<Telefone> = []
+        if (telefones != null) {
+            for (let i = 0; i < telefones.length; i++) {
+                // @ts-ignore
+                listaTelefones.push(new Telefone(telefones[i].ddd, telefones[i].numero))
+            }
+        }
+        this.telefones = listaTelefones
         this.state = {
             ddd: this.ddd,
             numero: this.numero,
-            telefones: [new Telefone("00", "00000-0000")]
+            telefones: this.telefones
         }
     }
 
     render() {
         const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault()
-            this.telefones.push(new Telefone(this.ddd, this.numero))
+            if (this.ddd === undefined || this.numero === undefined || this.ddd === "" || this.numero === "") {
+                alert("Preencha todos os campos do Telefone")
+            } else {
+                this.telefones.push(new Telefone(this.ddd, this.numero))
 
-            console.log(this.telefones)
+                this.ddd = ""
+                this.numero = ""
+                this.setState({ telefones: this.telefones })
 
-            this.ddd = ""
-            this.numero = ""
-            this.setState({ telefones: this.telefones })
-
-            localStorage.setItem("clienteTelefones", JSON.stringify(this.telefones))
+                localStorage.setItem("clienteTelefones", JSON.stringify(this.telefones))
+            }
         }
 
         const handleDddChange = (e: React.ChangeEvent<HTMLInputElement>) => {
